@@ -2,14 +2,14 @@
 
 A phonebook api which users can register and login. After that users can add-delete-update-list and search persons in their guides.
 
-##Setup
+## Setup
 
 ```
 npm install
 npm start
 ```
 
-##Usage
+## Usage
 
 You need to register to create a user then check your mailbox to verify your account. After that you can login with your account to use API.
 
@@ -24,14 +24,14 @@ ExampleUser.JSON:
 }
 ```
 
-###To register and login
+### To register and login
 
 | Route | HTTP Verb | POST body | Description |
 | --- | --- | --- | --- |
 | /api/v1/phonebook/register | `POST` | ExampleUser.JSON | To register. |
 | /api/v1/phonebook/login | `POST` | ExampleUser.JSON | To login. |
 
-###Using the API
+### Using the API
 
 ExamplePerson.JSON:
 
@@ -45,7 +45,7 @@ ExamplePerson.JSON:
 }
 ```
 
-####Important!
+#### Important!
 Do not forget to add x-access-token to header. It returns on body after login.
 
 | Route | HTTP Verb | POST body | Description |
