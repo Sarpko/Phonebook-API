@@ -1,7 +1,6 @@
-const { verifySignUp } = require("../middleware");
+const { verifySignUp,verifyLogin } = require("../middleware");
 const userController = require('../controllers/userController.js')
 const router = require('express').Router()
-const { authJwt } = require("../middleware");
 
 router.use(function(req, res, next) {
     res.header(
@@ -14,18 +13,17 @@ router.use(function(req, res, next) {
 router.post('/register', [
     verifySignUp.checkDuplicateUsernameOrEmail,
   ], 
-  userController.signup
+    userController.signup
   );
 
   
-router.post('/login', userController.login);
+router.post('/login', [
+    verifyLogin.checkVerifyEmail,
+  ], 
+    userController.login
+  );
 
-router.get('/test', [
-    authJwt.verifyToken
-], 
-userController.allContent
-);
-
+router.get('/verify/:id', userController.verify);
 
 module.exports = router
 

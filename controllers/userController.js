@@ -1,10 +1,14 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const mailler = require("../middleware/mailler.js");
 const config = require("../config/authConfig");
 const db = require('../models');
 
 //create main Model
 const User = db.user;
+
+
+
 
 const signup = async (req, res) =>{
     let info = {
@@ -14,7 +18,8 @@ const signup = async (req, res) =>{
     }
     try {
       const user = await User.create(info)
-      res.send({ message: "User was registered successfully!" });
+      res.send({ message: "User was registered successfully. Please check your email to verify."});
+      mailler(user)
     } catch(err) {
       console.log(err); 
       res.status(400).send({ message: err.message });
@@ -24,7 +29,7 @@ const signup = async (req, res) =>{
 
 const login = async (req, res) =>{
 
-   await User.findOne({
+      await User.findOne({
         where: {
           username: req.body.username
         }
@@ -61,13 +66,29 @@ const login = async (req, res) =>{
         });
 }
 
-const allContent = async (req, res) =>{
-    res.status(200).send("all content")
+const verify = async (req, res) =>{
+    
+  try {
+      await User.update(
+          {
+            verified: true,
+          },
+          {
+            where: {
+              id: req.params.id,
+            }
+        }
+    );
+    res.send("Email verified successfully! Now you can login.");
+  } catch(err) {
+    res.status(400).send({ message: err.message });
+    console.log(err); 
+  }
 }
 
 
 module.exports = {
     signup,
     login,
-    allContent
+    verify
 }

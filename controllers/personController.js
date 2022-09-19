@@ -46,7 +46,10 @@ const deleteSinglePerson = async (req, res) =>{
         const person = await Person.destroy(
             {
                 where: {
-                    id: req.body.id,
+                    [Op.and] :[{
+                        id: req.body.id,
+                        userId: req.body.userId,
+                    }],
                 }
             }
         );
@@ -71,7 +74,10 @@ const updateSinglePerson = async (req, res) =>{
             },
             {
                 where: {
-                    id: req.body.id,
+                    [Op.and] :[{
+                        id: req.body.id,
+                        userId: req.body.userId,
+                    }],
                 }
             }
         );
