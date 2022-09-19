@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "sarp",
+    "password": "123",
+    "database": "phonebook_db",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "sarp",
+    "password": "123",
+    "database": "phonebook_db",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "sarp",
+    "password": "123",
+    "database": "phonebook_db",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
