@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 
 const UserRouter = require('./routes/userRoutes.js')
 const PersonRouter = require('./routes/personRoutes.js')
-app.use('/api/v1/phonebook', UserRouter)
-app.use('/api/v1/phonebook', PersonRouter)
+app.use('/phonebook/api/v1', UserRouter)
+app.use('/phonebook/api/v1', PersonRouter)
 
 //testin api
 
