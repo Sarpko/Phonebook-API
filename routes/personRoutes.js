@@ -16,10 +16,10 @@ router.post('/addPerson', [
   personController.addPerson
   );
 
-  router.get('/findAllPersons', [
+  router.get('/listPersons', [
     authJwt.verifyToken,
   ], 
-  personController.findAllPersons
+  personController.listPersons
   );
 
   router.delete('/deletePerson', [
@@ -34,10 +34,10 @@ router.post('/addPerson', [
   personController.updateSinglePerson
   );
 
-  router.get('/findPersons', [
+  router.get('/findPerson', [
     authJwt.verifyToken,
   ], 
-  personController.findPersons
+  personController.findPerson
   );
 
 

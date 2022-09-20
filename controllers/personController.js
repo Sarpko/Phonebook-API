@@ -22,7 +22,7 @@ const addPerson = async (req, res) =>{
       }
 }
 
-const findAllPersons = async (req, res) =>{
+const listPersons = async (req, res) =>{
 
     try {
         const persons = await Person.findAll(
@@ -93,7 +93,7 @@ const updateSinglePerson = async (req, res) =>{
 
 }
 
-const findPersons = async (req, res) =>{
+const findPerson = async (req, res) =>{
 
     try {
         const persons = await Person.findAll(
@@ -130,8 +130,8 @@ const findPersons = async (req, res) =>{
 
 module.exports = {
     addPerson,
-    findAllPersons,
+    listPersons,
     deleteSinglePerson,
     updateSinglePerson,
-    findPersons
+    findPerson
 }
