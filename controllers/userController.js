@@ -4,11 +4,7 @@ const mailler = require("../middleware/mailler.js");
 const config = require("../config/authConfig");
 const db = require('../models');
 
-//create main Model
 const User = db.user;
-
-
-
 
 const signup = async (req, res) =>{
     let info = {

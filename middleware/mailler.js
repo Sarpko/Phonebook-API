@@ -10,10 +10,10 @@ module.exports = async function mailler(user) {
         }
     });
     await transporter.sendMail({
-    from: 'mobilist-phonebook-api@hotmail.com',
-    to: user.email,
-    subject: "Hello from phonebook API",
-    text: "You’re almost ready to start \nSimply click the link to verify your email address \n" + verfiyAdress
+        from: 'mobilist-phonebook-api@hotmail.com',
+        to: user.email,
+        subject: "Hello from phonebook API",
+        text: "You’re almost ready to start \nSimply click the link to verify your email address \n" + verfiyAdress
     });
 }
 

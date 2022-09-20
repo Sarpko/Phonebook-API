@@ -21,7 +21,7 @@ const PersonRouter = require('./routes/personRoutes.js')
 app.use('/phonebook/api/v1', UserRouter)
 app.use('/phonebook/api/v1', PersonRouter)
 
-//testin api
+//testing api
 
 app.get('/', (req, res) => {
     res.json({ message: 'hello from mobilist phone book api' })
