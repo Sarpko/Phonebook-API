@@ -46,14 +46,14 @@ ExamplePerson.JSON:
 ```
 
 #### Important!
-Do not forget to add x-access-token to header. It returns on body after login.
+Api uses JWT to access endpoints. Do not forget to add x-access-token to header. It returns on body after login.
 
 | Route | HTTP Verb | POST body | Description |
 | --- | --- | --- | --- |
 | /api/v1/phonebook/addPerson | `POST` | ExamplePerson.JSON | Create a new person in your phonebook. |
-| /api/v1/phonebook/findAllPersons | `GET` | { "userId": "phoneOwnerID" } | List all persons in your phonebook. Also it returns person Ids |
-| /api/v1/phonebook/findPersons | `GET` | userId is mandatory, the rest is optional exp:{ "userId": "phoneOwnerID", "firstname": "sa"} | Find persons for conditions|
-| /api/v1/phonebook/deletePerson | `DELETE` | { "userId": "phoneOwnerID", "id":"id" } | Create a new person in your phonebook. Can get the person id from findAllPersons or findPersons |
+| /api/v1/phonebook/listPersons | `GET` | { "userId": "phoneOwnerID" } | List all persons in your phonebook. Also it returns person Ids |
+| /api/v1/phonebook/findPerson | `GET` | userId is mandatory, the rest is optional exp:{ "userId": "phoneOwnerID", "firstname": "sa"} | Find persons for conditions|
+| /api/v1/phonebook/deletePerson | `DELETE` | { "userId": "phoneOwnerID", "id":"id" } | Create a new person in your phonebook. Can get the person id from listPersons or findPerson |
 | /api/v1/phonebook/updatePerson | `PUT` | userId and id are mandatory, the rest is optional exp:{ "userId": "phoneOwnerID", "id":"id", "firstname": "mehmet"} | Update a person |
 
 
