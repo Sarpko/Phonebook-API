@@ -9,8 +9,6 @@ checkVerifyEmail = (req, res, next) => {
         username: req.body.username
         }
     }).then(user => {
-        console.log("user")
-        console.log(user.verified)
         if (user.verified == false) {
         res.status(400).send({
             message: "Email not verified. We send you a mail again. Please verify your email from your mailbox"
@@ -22,8 +20,26 @@ checkVerifyEmail = (req, res, next) => {
     });
 };
 
+checkAlreadyVerify = (req, res, next) => {
+    console.log("inside check verify")
+    User.findOne({
+        where: {
+        id: req.params.id
+        }
+    }).then(user => {
+        if (user.verified == true) {
+        res.status(400).send({
+            message: "Email already verified"
+        });
+        return;
+        }
+        next();
+    });
+};
+
 const verifyLogin = {
     checkVerifyEmail: checkVerifyEmail,
+    checkAlreadyVerify: checkAlreadyVerify,
 };
 
 module.exports = verifyLogin;

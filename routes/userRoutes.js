@@ -23,7 +23,11 @@ router.post('/login', [
     userController.login
   );
 
-router.get('/verify/:id', userController.verify);
+router.get('/verify/:id',  [
+  verifyLogin.checkAlreadyVerify,
+  ], 
+    userController.verify
+  );
 
 module.exports = router
 
