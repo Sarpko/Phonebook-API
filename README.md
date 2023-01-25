@@ -18,7 +18,7 @@ ExampleUser.JSON:
 
 ```
 {
-  "userId": "sarp",
+  "username": "sarp",
   "email": "sarp@hotmail.com",
   "password" :"123"
 }

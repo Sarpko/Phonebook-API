@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
 module.exports = async function mailler(user) {
-    const verfiyAdress= "http://localhost:8080/api/v1/phonebook/verify/" + user.id
+    const verfiyAdress= "http://localhost:8080/phonebook/api/v1/verify/" + user.id
     const transporter = nodemailer.createTransport({
     service: 'hotmail',
         auth: {
