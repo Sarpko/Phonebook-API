@@ -1,4 +1,4 @@
-# mobilist-phonebook
+# Phonebook API
 
 A phonebook api which users can register and login. After that users can add-delete-update-list and search persons in their guides.
 
